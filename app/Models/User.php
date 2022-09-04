@@ -24,20 +24,20 @@ class User extends Authenticatable
      * @var string[]
      */
 
+    const ACTIVE=1;
+    const INACTIVE=0;
+    const PENDING=2;
+
     const DEVELOPER=1;
     const ADMIN=2;
     const GENERALUSER=3;
-
-    const ACTIVE=1;
-    const INACTIVE=0;
-
 
     protected $fillable = [
         'name',
         'email',
         'phone',
-        'user_role',
         'cv_link',
+        'user_role',
         'password',
     ];
 
@@ -70,4 +70,8 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function allUsers(){
+        return self::get();
+    }
 }

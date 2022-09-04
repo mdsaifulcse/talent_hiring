@@ -16,14 +16,20 @@ use Inertia\Inertia;
 */
 
 
-Route::get('/dashboard', [\App\Http\Controllers\Admin\DashboardController::class,'dashboard'] );
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return Inertia::render('Dashboard');
-    })->name('dashboard');
+Route::group(['middleware' => ['auth:sanctum']], function() {
+    Route::get('/dashboard', [\App\Http\Controllers\Admin\DashboardController::class,'dashboard'] );
+    Route::resource('/users', \App\Http\Controllers\Admin\UserController::class );
+
 });
+
+
+//Route::middleware([
+//    'auth:sanctum',
+//    config('jetstream.auth_session'),
+//    'verified',
+//])->group(function () {
+//    Route::get('/dashboard', function () {
+//        return Inertia::render('Dashboard');
+//    })->name('dashboard');
+//});

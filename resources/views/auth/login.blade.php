@@ -16,13 +16,13 @@
             @csrf
 
             <div>
-                <x-jet-label for="auth" value="{{ __('Email/Username/Phone') }}" />
-                <x-jet-input id="auth" class="block mt-1 w-full" type="text" name="auth" :value="old('auth')" required autofocus />
+                <x-jet-label for="email" value="{{ __('Email') }}" />
+                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
             </div>
 
             <div class="mt-4">
                 <x-jet-label for="password" value="{{ __('Password') }}" />
-                <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required />
+                <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
             </div>
 
             <div class="block mt-4">

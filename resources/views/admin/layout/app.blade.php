@@ -114,6 +114,7 @@
 
 @include('admin.layout.js-files')
 
+@include('sweetalert::alert')
 @yield('script')
 </body>
 

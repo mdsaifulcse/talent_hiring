@@ -15,7 +15,12 @@
                     <li class="more-details">
                         <a href="user-profile.html"><i class="ti-user"></i>View Profile</a>
                         <a href="#!"><i class="ti-settings"></i>Settings</a>
-                        <a href="#!"><i class="ti-layout-sidebar-left"></i>Logout</a>
+                        <a href="javascript:void(0)" onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();"><i class="ti-layout-sidebar-left"></i>Logout</a>
+
+                        <form id="logout-form" action="{{route('logout')}}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
                     </li>
                 </ul>
             </div>

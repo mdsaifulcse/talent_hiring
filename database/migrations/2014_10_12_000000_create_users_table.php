@@ -16,13 +16,13 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('email')->nullable()->unique();
-            $table->string('phone')->nullable()->unique();
+            $table->string('email')->unique();
+            $table->string('phone')->unique();
             $table->string('cv_link')->nullable();
-            $table->tinyInteger('user_role')->default(\App\Models\User::GENERALUSER)->comment('1=Developer,2=Admin,3=General User');
-            $table->tinyInteger('status')->default(\App\Models\User::ACTIVE);
+            $table->string('user_role')->default(\App\Models\User::GENERALUSER)->comment('1=Developer,2=Admin,3=General user');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->tinyInteger('status')->default(\App\Models\User::PENDING)->comment('0=Inactive,1=Active,2=Pending,');
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
