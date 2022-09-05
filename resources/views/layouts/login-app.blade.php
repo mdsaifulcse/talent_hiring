@@ -20,16 +20,16 @@
     <meta name="author" content="Phoenixcoded">
     <!-- Favicon icon -->
 
-    <link rel="icon" href="{{'admin/assets/images/favicon.ico'}}" type="image/x-icon">
+    <link rel="icon" href="{{asset('admin/assets/images/favicon.ico')}}" type="image/x-icon">
     <!-- Google font-->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
     <!-- Required Fremwork -->
-    <link rel="stylesheet" type="text/css" href="{{'admin/assets/bower_components/bootstrap/dist/css/bootstrap.min.css'}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('admin/assets/bower_components/bootstrap/dist/css/bootstrap.min.css')}}">
 
     <!-- ico font -->
-    <link rel="stylesheet" type="text/css" href="{{'admin/assets/icon/icofont/css/icofont.css'}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('admin/assets/icon/icofont/css/icofont.css')}}">
     <!-- Style.css -->
-    <link rel="stylesheet" type="text/css" href="{{'admin/assets/css/style.css'}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('admin/assets/css/style.css')}}">
 </head>
 
 <body class="fix-menu">
@@ -43,8 +43,8 @@
 
 <!-- Warning Section Ends -->
 <!-- Required Jquery -->
-<script type="text/javascript" src="{{'admin/assets/bower_components/jquery/dist/jquery.min.js'}}"></script>
-<script type="text/javascript" src="{{'admin/assets/bower_components/bootstrap/dist/js/bootstrap.min.js'}}"></script>
+<script type="text/javascript" src="{{asset('admin/assets/bower_components/jquery/dist/jquery.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('admin/assets/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
 
 </body>
 

@@ -8,19 +8,19 @@
         <!-- Page-header start -->
         <div class="page-header">
             <div class="page-header-title">
-                <h4>Bootstrap Styling Table</h4>
-                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
+                <h4> User List </h4>
+                <span>There are all active and pending user list in here</span>
             </div>
             <div class="page-header-breadcrumb">
                 <ul class="breadcrumb-title">
                     <li class="breadcrumb-item">
-                        <a href="index-2.html">
+                        <a href="{{url('/')}}">
                             <i class="icofont icofont-home"></i>
                         </a>
                     </li>
-                    <li class="breadcrumb-item"><a href="#!">Bootstrap Table</a>
-                    </li>
-                    <li class="breadcrumb-item"><a href="#!">Styling Table</a>
+                    <li class="breadcrumb-item">
+                        <i class="icofont icofont-plus"></i>
+                        <a href="{{route('users.create')}}">Create User</a>
                     </li>
                 </ul>
             </div>
@@ -52,9 +52,14 @@
                                 <td>{{$user->email}}</td>
                                 <td>{{$user->phone}}</td>
                                 <td>
-                                    <a href="#" class="btn btn-warning btn-sm"> Edit </a>
+                                    <a href="{{route('users.edit', $user->id)}}" class="btn btn-warning btn-sm"> Edit </a>
                                     <a href="#" class="btn btn-info btn-sm"> Details </a>
-                                    <a href="#" class="btn btn-danger btn-sm"> <i class="icofont icofont-trash"></i>  Delete </a>
+
+                                    <form method="POST" action="{{ route('users.destroy', $user->id) }}" style="display: inline-block">
+                                        @csrf
+                                        <input name="_method" type="hidden" value="DELETE">
+                                        <a href="javascript:void(0)" class="btn btn-danger btn-sm show_confirm">Delete </a>
+                                    </form>
                                 </td>
                             </tr>
                             @empty

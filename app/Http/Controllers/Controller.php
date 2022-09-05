@@ -16,7 +16,7 @@ class Controller extends BaseController
     {
         $this->middleware(function($request,$next){
             if (session('success')) {
-                Alert::success(session('success'));
+                Alert::success('success!',session('success'));
             }
 
             if (session('error')) {

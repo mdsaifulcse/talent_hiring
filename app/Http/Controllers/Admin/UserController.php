@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UserUpdateRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class UserController extends Controller
 {
@@ -21,7 +23,7 @@ class UserController extends Controller
 
     public function index()
     {
-        return view('admin.users.index',['users'=>$this->users->allUsers()]);
+        return view('admin.users.index',['users'=>$this->users->allGeneralUsers()]);
     }
 
     /**
@@ -62,9 +64,13 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
+        try{
+           return view('admin.users.edit',['user'=>$user]);
+        }catch(\Exception $e){
+            return back()->with('error',$e->getMessage());
+        }
     }
 
     /**
@@ -74,9 +80,17 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(User $user,UserUpdateRequest $request)
     {
-        //
+
+        try{
+            $user->update($request->except('_method','_token','user_role'));
+
+            return redirect()->back()->with('success', 'Updated successfully!');
+
+        }catch(\Exception $e){
+            return back()->with('error',$e->getMessage());
+        }
     }
 
     /**
@@ -85,8 +99,15 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        //
+        try{
+
+            $user->delete();
+            return redirect()->back()->with('success', 'Deleted successfully!');
+
+        }catch(\Exception $e){
+            return back()->with('error',$e->getMessage());
+        }
     }
 }

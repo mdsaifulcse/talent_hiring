@@ -13,7 +13,7 @@
                     <form class="md-float-material" method="POST" action="{{ route('register') }}">
                         @csrf
                         <div class="text-center">
-                            <img src="{{'admin/assets/images/auth/logo.png'}}" alt="logo.png">
+                            <img src="{{asset('admin/assets/images/auth/logo.png')}}" alt="logo.png">
                         </div>
                         <div class="auth-box">
                             <div class="row m-b-20">
@@ -118,4 +118,5 @@
             <!-- end of col-sm-12 -->
         </div>
         <!-- end of row -->
+    </div>
     @endsection

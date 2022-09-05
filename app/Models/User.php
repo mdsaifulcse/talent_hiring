@@ -71,7 +71,9 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    public function allUsers(){
-        return self::get();
+
+
+    public function allGeneralUsers(){
+        return $this->where('user_role',3)->get();
     }
 }
