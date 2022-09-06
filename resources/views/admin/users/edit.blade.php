@@ -78,8 +78,8 @@
                                         <div class="form-group">
                                             <label class="col-form-label">Status</label>
                                             <select name="status" id="userStatus" class="form-control">
-                                                <option value="0" @if($user->status ==0 ) selected @endif>Inactive</option>
-                                                <option value="1" @if($user->status ==1) selected @endif>Active</option>
+                                                <option value="0" @if($user->status ==0 ) selected @endif>Rejected</option>
+                                                <option value="1" @if($user->status ==1) selected @endif>Approved</option>
                                                 <option value="2" @if($user->status==2) selected @endif>Pending</option>
                                             </select>
 

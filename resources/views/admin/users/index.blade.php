@@ -9,7 +9,7 @@
         <div class="page-header">
             <div class="page-header-title">
                 <h4> User List </h4>
-                <span>There are all active and pending user list in here</span>
+                <span>There are all approve, rejected followed by pending users list in here</span>
             </div>
             <div class="page-header-breadcrumb">
                 <ul class="breadcrumb-title">
@@ -40,28 +40,30 @@
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Phone</th>
+                                <th>Status</th>
                                 <th>Action</th>
                             </tr>
 
                             </thead>
                             <tbody>
                             @forelse($users as $key=>$user)
-                            <tr>
-                                <th scope="row">{{$key+1}}</th>
-                                <td>{{$user->name}}</td>
-                                <td>{{$user->email}}</td>
-                                <td>{{$user->phone}}</td>
-                                <td>
-                                    <a href="{{route('users.edit', $user->id)}}" class="btn btn-warning btn-sm"> Edit </a>
-                                    <a href="#" class="btn btn-info btn-sm"> Details </a>
+                                <tr>
+                                    <th scope="row">{{$key+1}}</th>
+                                    <td>{{$user->name}}</td>
+                                    <td>{{$user->email}}</td>
+                                    <td>{{$user->phone}}</td>
+                                    <td>{{$user->approval_status}}</td>
+                                    <td>
+                                        <a href="{{route('users.edit', $user->id)}}" class="btn btn-warning btn-sm"> Edit </a>
+                                        <a href="javascript:void(0)" id="userDetail" data-userid="{{$user->id}}" class="btn btn-info btn-sm"> Details </a>
 
-                                    <form method="POST" action="{{ route('users.destroy', $user->id) }}" style="display: inline-block">
-                                        @csrf
-                                        <input name="_method" type="hidden" value="DELETE">
-                                        <a href="javascript:void(0)" class="btn btn-danger btn-sm show_confirm">Delete </a>
-                                    </form>
-                                </td>
-                            </tr>
+                                        <form method="POST" action="{{ route('users.destroy', $user->id) }}" style="display: inline-block">
+                                            @csrf
+                                            <input name="_method" type="hidden" value="DELETE">
+                                            <a href="javascript:void(0)" class="btn btn-danger btn-sm show_confirm">Delete </a>
+                                        </form>
+                                    </td>
+                                </tr>
                             @empty
 
                             @endforelse
@@ -74,4 +76,45 @@
         </div>
         <!-- Page-body end -->
     </div>
-    @endsection
+
+
+    <!-- Modal -->
+    <div id="userDetailModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">User Details</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body" id="userDetailModalBody">
+
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+@endsection
+
+@section('script')
+
+    <script>
+        $('#userDetail').on('click',function () {
+
+            $('#userDetailModal').modal('show')
+            var userId=$(this).data('userid')
+            $('#userDetailModalBody').load('{{URL::to("users")}}/'+userId);
+
+            //$('#userDetailModalBody').html('<center><img src=" {{asset('images/default/loader.gif')}}"/></center>').load('{{url('users')}}/'+userId);
+        })
+    </script>
+
+@endsection

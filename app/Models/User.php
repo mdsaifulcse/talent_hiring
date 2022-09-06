@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -24,8 +25,9 @@ class User extends Authenticatable
      * @var string[]
      */
 
-    const ACTIVE=1;
-    const INACTIVE=0;
+
+    const REJECTED=0;
+    const APPROVED=1;
     const PENDING=2;
 
     const DEVELOPER=1;
@@ -37,6 +39,8 @@ class User extends Authenticatable
         'email',
         'phone',
         'cv_link',
+        'user_role',
+        'status',
         'user_role',
         'password',
     ];
@@ -71,6 +75,16 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
+    public function getApprovalStatusAttribute() {
+
+        if ($this->status==1){
+            return 'Approved';
+        }elseif($this->status==0){
+            return 'Rejected';
+        }elseif($this->status==2){
+            return 'Pending';
+        }
+    }
 
 
     public function allGeneralUsers(){

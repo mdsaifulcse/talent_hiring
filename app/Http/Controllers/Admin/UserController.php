@@ -53,9 +53,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(User $user)
     {
-        //
+        return view('admin.users.show',['user'=>$user]);
     }
 
     /**
@@ -82,7 +82,6 @@ class UserController extends Controller
      */
     public function update(User $user,UserUpdateRequest $request)
     {
-
         try{
             $user->update($request->except('_method','_token','user_role'));
 
@@ -102,7 +101,6 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         try{
-
             $user->delete();
             return redirect()->back()->with('success', 'Deleted successfully!');
 

@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('user_role')->default(\App\Models\User::GENERALUSER)->comment('1=Developer,2=Admin,3=General user');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->tinyInteger('status')->default(\App\Models\User::PENDING)->comment('0=Inactive,1=Active,2=Pending,');
+            $table->tinyInteger('status')->default(\App\Models\User::PENDING)->comment('0=REJECTED,1=APPROVED,2=PENDING');
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
