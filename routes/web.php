@@ -23,6 +23,9 @@ Route::group(['middleware' => ['auth']], function() {
 
 });
 
+Route::get('/', function (){
+    return redirect('/login');
+});
 
 //Route::middleware([
 //    'auth:sanctum',

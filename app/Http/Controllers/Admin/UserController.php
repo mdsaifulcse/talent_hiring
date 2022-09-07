@@ -33,7 +33,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -44,7 +44,16 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try{
+            $user=$this->users->findOrFail($request->id);
+
+            $user->update(['status'=>$request->status]);
+
+            return redirect()->back()->with('success', 'Status updated successfully!');
+
+        }catch(\Exception $e){
+            return back()->with('error',$e->getMessage());
+        }
     }
 
     /**

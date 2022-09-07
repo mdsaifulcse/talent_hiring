@@ -95,30 +95,15 @@
                     <li class="user-profile header-notification">
                         <a href="#!">
                             <img src="{{asset('admin/assets/images/user.png')}}" alt="User-Profile-Image">
-                            <span>John Doe</span>
+                            <span>{{auth()->user()->name}}</span>
                             <i class="ti-angle-down"></i>
                         </a>
                         <ul class="show-notification profile-notification">
-                            <li>
-                                <a href="#!">
-                                    <i class="ti-settings"></i> Settings
-                                </a>
-                            </li>
-                            <li>
-                                <a href="user-profile.html">
-                                    <i class="ti-user"></i> Profile
-                                </a>
-                            </li>
-                            <li>
-                                <a href="email-inbox.html">
-                                    <i class="ti-email"></i> My Messages
-                                </a>
-                            </li>
-                            <li>
-                                <a href="auth-lock-screen.html">
-                                    <i class="ti-lock"></i> Lock Screen
-                                </a>
-                            </li>
+                            {{--<li>--}}
+                                {{--<a href="#!">--}}
+                                    {{--<i class="ti-settings"></i> Settings--}}
+                                {{--</a>--}}
+                            {{--</li>--}}
                             <li>
                                 <a href="javascript:void(0)" onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
