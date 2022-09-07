@@ -29,5 +29,12 @@ class Quiz extends Model
 
  public $quizTopics=['Bangla'=>'Bangla','English'=>'English','Math'=>'Math','Bangladesh'=>'Bangladesh'];
 
+ public function scopeActive($q){
+     return $q->where('status',Quiz::ACTIVE);
+ }
+
+    public function allQuizzes($q){
+        return $q->active()->latest()->get();
+    }
 
 }

@@ -20,6 +20,7 @@ use Inertia\Inertia;
 Route::group(['middleware' => ['auth']], function() {
     Route::get('/dashboard', [\App\Http\Controllers\Admin\DashboardController::class,'dashboard'] );
     Route::resource('/users', \App\Http\Controllers\Admin\UserController::class );
+    Route::resource('/quizzes', \App\Http\Controllers\Admin\QuizController::class );
 
 });
 

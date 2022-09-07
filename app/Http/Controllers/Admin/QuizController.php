@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Quiz;
 use Illuminate\Http\Request;
 
@@ -12,10 +13,17 @@ class QuizController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct(Quiz $quiz)
+    {
+        $this->quiz=$quiz;
+    }
+
     public function index()
     {
-        //
+        return view('admin.users.index',['quizzes'=>$this->quiz->allQuizzes()]);
     }
+
 
     /**
      * Show the form for creating a new resource.

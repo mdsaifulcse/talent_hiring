@@ -22,7 +22,7 @@ class UserSeeder extends Seeder
                 'email'=>'dev@talenthire.com',
                 'phone'=>'01700000000',
                 'user_role'=>User::DEVELOPER,
-                'status'=>User::ACTIVE,
+                'status'=>User::APPROVED,
                 'password'=>bcrypt('12345678'),
                 'created_at'=>Date('Y-m-d h:i:s'),
                 'updated_at'=>Date('Y-m-d h:i:s')
@@ -33,7 +33,7 @@ class UserSeeder extends Seeder
                 'email'=>'admin@talenthire.com',
                 'phone'=>'01800000000',
                 'user_role'=>User::ADMIN,
-                'status'=>User::ACTIVE,
+                'status'=>User::APPROVED,
                 'password'=>bcrypt('12345678'),
                 'created_at'=>Date('Y-m-d h:i:s'),
                 'updated_at'=>Date('Y-m-d h:i:s')
@@ -44,7 +44,7 @@ class UserSeeder extends Seeder
                 'email'=>'user@talenthire.com',
                 'phone'=>'01600000000',
                 'user_role'=>User::GENERALUSER,
-                'status'=>User::ACTIVE,
+                'status'=>User::APPROVED,
                 'password'=>bcrypt('12345678'),
                 'created_at'=>Date('Y-m-d h:i:s'),
                 'updated_at'=>Date('Y-m-d h:i:s')
