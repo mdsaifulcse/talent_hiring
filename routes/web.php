@@ -17,11 +17,16 @@ use Inertia\Inertia;
 
 
 
-Route::group(['middleware' => ['auth']], function() {
+Route::group(['middleware' => ['auth','admin']], function() {
+    // ----------- For admin & developer ----------
     Route::get('/dashboard', [\App\Http\Controllers\Admin\DashboardController::class,'dashboard'] );
     Route::resource('/users', \App\Http\Controllers\Admin\UserController::class );
     Route::resource('/quizzes', \App\Http\Controllers\Admin\QuizController::class );
+});
 
+Route::group(['middleware' => ['auth']], function() {
+    // ----------- For General user ----------
+    Route::get('/user-dashboard', [\App\Http\Controllers\Client\DashboardController::class,'dashboard'] );
 });
 
 Route::get('/', function (){

@@ -15,15 +15,15 @@ class CreateQuizzesTable extends Migration
     {
         Schema::create('quizzes', function (Blueprint $table) {
             $table->id();
-            $table->string('quiz_question');
-            $table->text('quiz_topic')->nullable();
-            $table->text('quiz_detail')->nullable();
+            $table->string('question');
+            $table->text('topic')->nullable();
+            $table->text('detail')->nullable();
 
             $table->string('option1',150)->nullable();
             $table->string('option2',150)->nullable();
             $table->string('option3',150)->nullable();
             $table->string('option4',150)->nullable();
-            $table->string('correct_option',150)->nullable()->comment('Must be option value');
+            $table->string('correct_option',150)->nullable()->comment('Must be option name');
             $table->tinyInteger('correct_mark',false,3)->default(0);
             $table->tinyInteger('status')->default(\App\Models\Quiz::ACTIVE);
 

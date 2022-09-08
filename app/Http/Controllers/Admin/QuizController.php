@@ -21,7 +21,7 @@ class QuizController extends Controller
 
     public function index()
     {
-        return view('admin.users.index',['quizzes'=>$this->quiz->allQuizzes()]);
+        return view('admin.quizzes.index',['quizzes'=>$this->quiz->allTopicWiseQuizzes()]);
     }
 
 

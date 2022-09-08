@@ -34,6 +34,8 @@
                     <span class="pcoded-mcaret"></span>
                 </a>
                 <ul class="pcoded-submenu">
+
+                    @if(1)
                     <li class="active">
                         <a href="{{route('users.index')}}">
                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
@@ -41,6 +43,7 @@
                             <span class="pcoded-mcaret"></span>
                         </a>
                     </li>
+
                     <li class="active">
                         <a href="{{route('quizzes.index')}}">
                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
@@ -48,6 +51,8 @@
                             <span class="pcoded-mcaret"></span>
                         </a>
                     </li>
+                        @endif
+
                 </ul>
             </li>
 

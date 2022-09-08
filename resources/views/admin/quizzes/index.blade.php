@@ -8,8 +8,8 @@
         <!-- Page-header start -->
         <div class="page-header">
             <div class="page-header-title">
-                <h4> User List </h4>
-                <span>There are all approve, rejected followed by pending users list in here</span>
+                <h4> Quizzes List </h4>
+                <span>There are all quiz topics and topic wise question count</span>
             </div>
             <div class="page-header-breadcrumb">
                 <ul class="breadcrumb-title">
@@ -18,10 +18,10 @@
                             <i class="icofont icofont-home"></i>
                         </a>
                     </li>
-                    <li class="breadcrumb-item">
-                        <i class="icofont icofont-plus"></i>
-                        <a href="{{route('users.create')}}">Create User</a>
-                    </li>
+                    {{--<li class="breadcrumb-item">--}}
+                        {{--<i class="icofont icofont-plus"></i>--}}
+                        {{--<a href="{{route('users.create')}}">Create User</a>--}}
+                    {{--</li>--}}
                 </ul>
             </div>
         </div>
@@ -37,37 +37,23 @@
                             <thead>
                             <tr class="table-primary">
                                 <th>Sl</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Phone</th>
-                                <th>Status</th>
-                                <th>Action</th>
+                                <th>Topic</th>
+                                <th>Question</th>
                             </tr>
 
                             </thead>
                             <tbody>
-                            @forelse($users as $key=>$user)
+                            @forelse($quizzes as $key=>$qui)
                                 <tr>
                                     <th scope="row">{{$key+1}}</th>
-                                    <td>{{$user->name}}</td>
-                                    <td>{{$user->email}}</td>
-                                    <td>{{$user->phone}}</td>
-                                    <td>{{$user->approval_status}}</td>
-                                    <td>
-                                        <a href="{{route('users.edit', $user->id)}}" class="btn btn-warning btn-sm"> Edit </a>
-                                        <a href="javascript:void(0)" id="userDetail" data-userid="{{$user->id}}" class="btn btn-info btn-sm"> Details </a>
-
-                                        <form method="POST" action="{{ route('users.destroy', $user->id) }}" style="display: inline-block">
-                                            @csrf
-                                            <input name="_method" type="hidden" value="DELETE">
-                                            <a href="javascript:void(0)" class="btn btn-danger btn-sm show_confirm">Delete </a>
-                                        </form>
-                                    </td>
+                                    <td>{{$qui->topic}}</td>
+                                    <td>{{$qui->topic_wise_quiz_count}}</td>
                                 </tr>
                             @empty
                                 <tr>
                                     <th colspan="3" class="text-center text-danger">No Data Found</th>
                                 </tr>
+
                             @endforelse
                             </tbody>
                         </table>

@@ -90,4 +90,12 @@ class User extends Authenticatable
     public function allGeneralUsers(){
         return $this->where('user_role',3)->get();
     }
+
+    public function getIsAdminAttribute(){
+         if ($this->user()->user_role==2){
+             return true;
+         }else{
+            return false;
+         }
+    }
 }
