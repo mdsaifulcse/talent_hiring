@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\User;
 use Illuminate\Support\ServiceProvider;
+use View;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +25,15 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        View::composer( // for left nav --------------
+            [
+                'admin.layout.top-nav',
+                'admin.layout.left-nav',
+            ],
+            function ($view)
+            {
+                $authUser=User::find(3);
+                $view->with(['authUser'=>$authUser]);
+            });
     }
 }

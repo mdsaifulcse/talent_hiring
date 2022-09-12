@@ -10,7 +10,7 @@ class DashboardController extends Controller
 {
     public function dashboard(Request $request){
 
-        return User::find(auth()->user()->id);
+        //return User::find(auth()->user()->id);
         return view('client.dashboard');
     }
 }

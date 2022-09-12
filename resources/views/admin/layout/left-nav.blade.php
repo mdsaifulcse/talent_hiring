@@ -27,15 +27,15 @@
         </div>
         <div class="pcoded-navigatio-lavel" data-i18n="nav.category.navigation" menu-title-theme="theme5">Navigation</div>
         <ul class="pcoded-item pcoded-left-item">
+
+        @if($authUser->is_admin) <!--For admin -->
             <li class="pcoded-hasmenu active pcoded-trigger">
                 <a href="javascript:void(0)">
                     <span class="pcoded-micon"><i class="ti-home"></i></span>
-                    <span class="pcoded-mtext" data-i18n="nav.dash.main">Dashboard</span>
+                    <span class="pcoded-mtext" data-i18n="nav.dash.main">Dashboard </span>
                     <span class="pcoded-mcaret"></span>
                 </a>
                 <ul class="pcoded-submenu">
-
-                    @if(1)
                     <li class="active">
                         <a href="{{route('users.index')}}">
                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
@@ -47,15 +47,48 @@
                     <li class="active">
                         <a href="{{route('quizzes.index')}}">
                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                            <span class="pcoded-mtext" data-i18n="nav.dash.default">Quizzes</span>
+                            <span class="pcoded-mtext" data-i18n="nav.dash.default">Quizzes List</span>
                             <span class="pcoded-mcaret"></span>
                         </a>
                     </li>
-                        @endif
 
                 </ul>
             </li>
 
+        @elseif(!$authUser->is_admin) <!-- not for admin -->
+
+            <li class="pcoded-hasmenu active pcoded-trigger">
+                <a href="javascript:void(0)">
+                    <span class="pcoded-micon"><i class="ti-home"></i></span>
+                    <span class="pcoded-mtext" data-i18n="nav.dash.main">Quiz </span>
+                    <span class="pcoded-mcaret"></span>
+                </a>
+                <ul class="pcoded-submenu">
+                    <li class="active">
+                        <a href="{{route('quizzes.index')}}">
+                            <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                            <span class="pcoded-mtext" data-i18n="nav.dash.default">Bangla</span>
+                            <span class="pcoded-mcaret"></span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="">
+                            <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                            <span class="pcoded-mtext" data-i18n="nav.dash.default">English</span>
+                            <span class="pcoded-mcaret"></span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="">
+                            <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                            <span class="pcoded-mtext" data-i18n="nav.dash.default">Math</span>
+                            <span class="pcoded-mcaret"></span>
+                        </a>
+                    </li>
+
+                </ul>
+            </li>
+        @endif
         </ul>
 
     </div>

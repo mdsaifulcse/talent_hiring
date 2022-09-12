@@ -7,9 +7,15 @@
             <a class="mobile-search morphsearch-search" href="#">
                 <i class="ti-search"></i>
             </a>
-            <a href="index-2.html">
+            @if($authUser->is_admin)
+            <a href="{{url('/dashboard')}}">
                 <img class="img-fluid" src="{{asset('admin/assets/images/logo.png')}}" alt="Theme-Logo" />
             </a>
+            @else
+                <a href="{{url('/user-dashboard')}}">
+                    <img class="img-fluid" src="{{asset('admin/assets/images/logo.png')}}" alt="Theme-Logo" />
+                </a>
+                @endif
             <a class="mobile-options">
                 <i class="ti-more"></i>
             </a>
