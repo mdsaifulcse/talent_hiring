@@ -20,10 +20,13 @@ class QuizController extends Controller
         $this->quiz=$quiz;
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        return 'Good';
-        return view('client.quiz.index',['quizzes'=>$this->quiz->allTopicWiseQuizzes()]);
+
+        $topic=$request->get('topic', 'default');
+        //return $this->quiz->topicAndUserWiseQuizzesAns($topic,auth()->user()->id);
+
+        return view('client.quiz.index',['topic'=>$topic,'topicWiseQuizzes'=>$this->quiz->topicAndUserWiseQuizzesAns($topic,auth()->user()->id)]);
     }
 
 

@@ -7,7 +7,7 @@
     <div class="page-wrapper">
         <div class="page-header">
             <div class="page-header-title">
-                <h4>This is for <strong>{{$topic}}</strong> Quiz</h4>
+                <h4>Result for <strong>{{$topic}}</strong> Quiz</h4>
             </div>
             <div class="page-header-breadcrumb">
                 <ul class="breadcrumb-title">
@@ -36,7 +36,7 @@
                                 <hr>
 
                                 <ul>
-                                    <li>
+                                    <li class="" >
                                         <label for="{{'1'.$key}}"><input type="radio" id="{{'1'.$key}}" name="answer_option[{{$topicWiseQuiz->id}}]" value="option1"> {{$topicWiseQuiz->option1}}</label>
                                     </li>
                                     <li>
@@ -55,7 +55,7 @@
                                 <h2> Quiz question not found </h2>
                             @endforelse
 
-                            <button type="submit" class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20">Submit Answer.</button>
+                            {{--<button type="submit" class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20">Submit Answer.</button>--}}
 
                         </form>
                     </div>

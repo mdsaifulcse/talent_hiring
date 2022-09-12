@@ -46,6 +46,15 @@ class Quiz extends Model
         return $this->groupBy('topic')->active()->get();
      }
 
+     public function topicAndUserWiseQuizzesAns($topic,$userId){
+        return $this->with('quizAnswer')->where(['topic'=>$topic])->active()
+            ->get();
+
+//         ->whereHas('quizAnswer',function ($q) use($userId){
+//             return $q->where('quiz_answers.user_id',$userId);
+//         })
+     }
+
      public function topicWiseQuizzes($topic){
         return $this->where(['topic'=>$topic])->active()->get();
      }
@@ -55,7 +64,7 @@ class Quiz extends Model
      }
 
      public function quizAnswer(){
-         return $this->hasMany(QuizAnswer::class,'quiz_id','id');
+         return $this->hasOne(QuizAnswer::class,'quiz_id','id');
      }
 
 
