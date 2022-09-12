@@ -20,7 +20,7 @@ class Controller extends BaseController
             }
 
             if (session('error')) {
-                Alert::error(session('error'));
+                Alert::error(session('error',session('error')));
             }
 
             return $next($request);

@@ -10,11 +10,12 @@ class QuizAnswer extends Model
     use HasFactory;
 
     const WRONG=0;
-    const CORRECT=0;
+    const CORRECT=1;
     protected  $table='quiz_answers';
     protected $fillable = [
         'user_id',
         'quiz_id',
+        'topic',
         'answer_option',
         'answer_option_mark',
         'answer_status',

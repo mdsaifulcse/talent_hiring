@@ -17,6 +17,7 @@ class CreateQuizAnswersTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('quiz_id');
+            $table->string('topic');
             $table->string('answer_option')->nullable();
             $table->tinyInteger('answer_option_mark')->default(0);
             $table->tinyInteger('answer_status')->default(\App\Models\QuizAnswer::WRONG);

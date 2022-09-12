@@ -55,7 +55,7 @@
                 </ul>
             </li>
 
-        @elseif(!$authUser->is_admin) <!-- not for admin -->
+        @elseif(!$authUser->is_admin) <!-- For General User -->
 
             <li class="pcoded-hasmenu active pcoded-trigger">
                 <a href="javascript:void(0)">
@@ -64,27 +64,67 @@
                     <span class="pcoded-mcaret"></span>
                 </a>
                 <ul class="pcoded-submenu">
+
                     <li class="active">
-                        <a href="{{route('quizzes.index')}}">
+                        <a href="{{route('user-quiz.create').'?topic=Bangla'}}">
                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                             <span class="pcoded-mtext" data-i18n="nav.dash.default">Bangla</span>
                             <span class="pcoded-mcaret"></span>
                         </a>
                     </li>
+
                     <li class="active">
-                        <a href="">
+                        <a href="{{route('user-quiz.create').'?topic=English'}}">
                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                             <span class="pcoded-mtext" data-i18n="nav.dash.default">English</span>
                             <span class="pcoded-mcaret"></span>
                         </a>
                     </li>
+
                     <li class="active">
-                        <a href="">
+                        <a href="{{route('user-quiz.create').'?topic=Math'}}">
                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                             <span class="pcoded-mtext" data-i18n="nav.dash.default">Math</span>
                             <span class="pcoded-mcaret"></span>
                         </a>
                     </li>
+
+
+                </ul>
+            </li>
+
+            <li class="pcoded-hasmenu active pcoded-trigger">
+                <a href="javascript:void(0)">
+                    <span class="pcoded-micon"><i class="ti-home"></i></span>
+                    <span class="pcoded-mtext" data-i18n="nav.dash.main">Quiz Answer </span>
+                    <span class="pcoded-mcaret"></span>
+                </a>
+                <ul class="pcoded-submenu">
+
+                    <li class="active">
+                        <a href="{{route('user-quiz.index').'?topic=Bangla'}}">
+                            <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                            <span class="pcoded-mtext" data-i18n="nav.dash.default">Bangla</span>
+                            <span class="pcoded-mcaret"></span>
+                        </a>
+                    </li>
+
+                    <li class="active">
+                        <a href="{{route('user-quiz.index').'?topic=English'}}">
+                            <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                            <span class="pcoded-mtext" data-i18n="nav.dash.default">English</span>
+                            <span class="pcoded-mcaret"></span>
+                        </a>
+                    </li>
+
+                    <li class="active">
+                        <a href="{{route('user-quiz.index').'?topic=Math'}}">
+                            <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                            <span class="pcoded-mtext" data-i18n="nav.dash.default">Math</span>
+                            <span class="pcoded-mcaret"></span>
+                        </a>
+                    </li>
+
 
                 </ul>
             </li>

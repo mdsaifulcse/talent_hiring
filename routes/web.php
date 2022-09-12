@@ -27,6 +27,7 @@ Route::group(['middleware' => ['auth','admin']], function() {
 Route::group(['middleware' => ['auth']], function() {
     // ----------- For General user ----------
     Route::get('/user-dashboard', [\App\Http\Controllers\Client\DashboardController::class,'dashboard'] );
+    Route::resource('/user-quiz', \App\Http\Controllers\Client\QuizController::class );
 });
 
 Route::get('/', function (){

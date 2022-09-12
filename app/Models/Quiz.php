@@ -46,8 +46,16 @@ class Quiz extends Model
         return $this->groupBy('topic')->active()->get();
      }
 
+     public function topicWiseQuizzes($topic){
+        return $this->where(['topic'=>$topic])->active()->get();
+     }
+
      public function getTopicWiseQuizCountAttribute(){
         return $this->groupBy('topic')->active()->count();
+     }
+
+     public function quizAnswer(){
+         return $this->hasMany(QuizAnswer::class,'quiz_id','id');
      }
 
 

@@ -7,6 +7,14 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## App instruction
+1. Install this application: php artisan install
+2. connect the database: DB: talent_hire, User: root, password: ""
+3. Migrate the database: php artisan migrate
+4. Seed the database: php artisan db:seed
+5. Login with admin: username: admin@talenthire.com, password: 12345678
+    login with general user: user@talenthire.com, Password: 12345678
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
