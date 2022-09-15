@@ -50,7 +50,6 @@ class QuizController extends Controller
     public function store(QuizAnswerRequest $request)//
     {
         try{
-
             $answerInput=[];
 
             foreach ($request->answer_option as $key=>$answer){
