@@ -62,9 +62,8 @@ class QuizController extends Controller
                     // check exam already submit or not
                     $answer=$this->checkQuizAlreadySubmitted($quiz);
                     if ($answer){
-                        return redirect()->back()->with('error', 'Your answer for topic: '.$quiz->topic.' already submitted');
+                        return redirect()->back()->with('errors', 'Your answer for topic: '.$quiz->topic.' already submitted');
                     }
-
 
                     $answerStatus=QuizAnswer::WRONG;
 
@@ -90,7 +89,7 @@ class QuizController extends Controller
             return redirect()->back()->with('success', 'Quiz answer submitted successfully!');
 
         }catch(\Exception $e){
-            return back()->with('error',$e->getMessage());
+            return back()->with('errors',$e->getMessage());
         }
     }
 

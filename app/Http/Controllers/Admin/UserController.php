@@ -52,7 +52,7 @@ class UserController extends Controller
             return redirect()->back()->with('success', 'Status updated successfully!');
 
         }catch(\Exception $e){
-            return back()->with('error',$e->getMessage());
+            return back()->with('errors',$e->getMessage());
         }
     }
 
@@ -78,7 +78,7 @@ class UserController extends Controller
         try{
            return view('admin.users.edit',['user'=>$user]);
         }catch(\Exception $e){
-            return back()->with('error',$e->getMessage());
+            return back()->with('errors',$e->getMessage());
         }
     }
 
@@ -97,7 +97,7 @@ class UserController extends Controller
             return redirect()->back()->with('success', 'Updated successfully!');
 
         }catch(\Exception $e){
-            return back()->with('error',$e->getMessage());
+            return back()->with('errors',$e->getMessage());
         }
     }
 
@@ -114,7 +114,7 @@ class UserController extends Controller
             return redirect()->back()->with('success', 'Deleted successfully!');
 
         }catch(\Exception $e){
-            return back()->with('error',$e->getMessage());
+            return back()->with('errors',$e->getMessage());
         }
     }
 }

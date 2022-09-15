@@ -18,8 +18,8 @@ class Controller extends BaseController
             if (session('success')) {
                 Alert::success(session('success'));
             }
-            if (session('error')) {
-                Alert::error(session('error'));
+            if (session('errors')) {
+                Alert::error(session('errors'));
             }
             return $next($request);
         });
