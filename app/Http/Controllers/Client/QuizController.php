@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\QuizAnswerRequest;
 use App\Models\Quiz;
 use App\Models\QuizAnswer;
 use Illuminate\Http\Request;
@@ -46,11 +47,10 @@ class QuizController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(QuizAnswerRequest $request)//
     {
-
         try{
-            //return $request;
+
             $answerInput=[];
 
             foreach ($request->answer_option as $key=>$answer){
@@ -59,9 +59,8 @@ class QuizController extends Controller
 
                 if (!empty($quiz)){ // check quiz question exist
 
-                    // exam already submit
+                    // check exam already submit or not
                     $answer=$this->checkQuizAlreadySubmitted($quiz);
-
                     if ($answer){
                         return redirect()->back()->with('error', 'Your answer for topic: '.$quiz->topic.' already submitted');
                     }
@@ -86,17 +85,11 @@ class QuizController extends Controller
 
             }
 
-
-            if (count($answerInput)>0){
-                QuizAnswer::insert($answerInput);
-            }else{
-
-                return redirect()->back()->with('error', 'No quiz question found !');
-            }
+            QuizAnswer::insert($answerInput);
 
             return redirect()->back()->with('success', 'Quiz answer submitted successfully!');
 
-        }catch(Exception $e){
+        }catch(\Exception $e){
             return back()->with('error',$e->getMessage());
         }
     }

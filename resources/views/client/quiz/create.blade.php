@@ -7,7 +7,8 @@
     <div class="page-wrapper">
         <div class="page-header">
             <div class="page-header-title">
-                <h4>This is for <strong>{{$topic}}</strong> Quiz</h4>
+                <h4> This is for <strong>{{$topic}}</strong> Quiz</h4>
+                <h5 class="text-warning">{{session('error')}}</h5>
             </div>
             <div class="page-header-breadcrumb">
                 <ul class="breadcrumb-title">

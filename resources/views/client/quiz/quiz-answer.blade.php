@@ -7,7 +7,7 @@
     <div class="page-wrapper">
         <div class="page-header">
             <div class="page-header-title">
-                <h4>Result for <strong>{{$topic}}</strong> Quiz, UserName: {{$user->name}}</h4>
+                <h4>  Result for <strong>{{$topic}}</strong> Quiz, UserName: {{$user->name}}</h4>
             </div>
             <div class="page-header-breadcrumb">
                 <ul class="breadcrumb-title">
@@ -35,9 +35,14 @@
                                 <h4 class="entry-title mt-5">{{$key+1}}.  {{$topicWiseQuiz->question}}</h4>
                                 @if(!empty($topicWiseQuiz->quizAnswer))
                                     <?php
-                                       $answerOption=$topicWiseQuiz->quizAnswer->answer_option
+                                    $answerOption=$topicWiseQuiz->quizAnswer->answer_option;
+                                    $correctOption=$topicWiseQuiz->correct_option;
                                     ?>
-                                <span class="{{$topicWiseQuiz->correct_option==$topicWiseQuiz->quizAnswer->answer_option?'text-success':'text-danger'}}">Your Ans: {{$topicWiseQuiz->$answerOption}}</span>
+
+
+                                <span>Correct answer is: {{$topicWiseQuiz->$correctOption}} </span><br>
+                                <span class="{{$topicWiseQuiz->correct_option==$topicWiseQuiz->quizAnswer->answer_option?'text-success':'text-danger'}}">
+                                    Your Ans: {{$topicWiseQuiz->$answerOption}}</span>
                                     @else
                                     <span class="text-warning">No answer</span>
                                 @endif
