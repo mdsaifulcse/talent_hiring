@@ -32,7 +32,7 @@
 
                             @forelse($topicWiseQuizzes as $key=>$topicWiseQuiz)
                             <div class="single-quiz">
-                                <h4 class="entry-title mt-5">{{$topicWiseQuiz->question}}</h4>
+                                <h4 class="entry-title mt-5">{{$key+1}}.  {{$topicWiseQuiz->question}}</h4>
                                 <hr>
 
                                 <ul>

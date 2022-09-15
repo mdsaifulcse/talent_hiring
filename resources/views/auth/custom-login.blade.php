@@ -24,12 +24,12 @@
                             </div>
                             <hr/>
                             <div class="input-group">
-                                <input type="text" name="auth" class="form-control" placeholder="Your Username">
+                                <input type="text" name="auth" class="form-control" placeholder="Your Username" required>
                                 <span class="md-line"></span>
                             </div>
 
                             <div class="input-group">
-                                <input type="password" name="password" class="form-control" placeholder="Password">
+                                <input type="password" name="password" class="form-control" placeholder="Password" required>
                                 <span class="md-line"></span>
                             </div>
                             <div>
