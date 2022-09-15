@@ -46,8 +46,16 @@ class Quiz extends Model
         return $this->groupBy('topic')->active()->get();
      }
 
+     public function topicAndUserWiseQuizzesMarkCount($topic,$userId){
+        return self::with('quizAnswer')->where(['topic'=>$topic])->active()
+            ->get();
+
+//         ->whereHas('quizAnswer',function ($q) use($userId){
+//             return $q->where('quiz_answers.user_id',$userId);
+//         })
+     }
      public function topicAndUserWiseQuizzesAns($topic,$userId){
-        return $this->with('quizAnswer')->where(['topic'=>$topic])->active()
+        return self::with('quizAnswer')->where(['topic'=>$topic])->active()
             ->get();
 
 //         ->whereHas('quizAnswer',function ($q) use($userId){

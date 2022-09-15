@@ -7,7 +7,7 @@
     <div class="page-wrapper">
         <div class="page-header">
             <div class="page-header-title">
-                <h4>This is client dashboard</h4>
+                <h4>This is a dashboard</h4>
             </div>
             <div class="page-header-breadcrumb">
                 <ul class="breadcrumb-title">
@@ -25,12 +25,12 @@
         </div>
         <div class="page-body">
             <div class="row">
-                <div class="col-md-6 col-xl-3">
+                <div class="col-md-8 col-xl-3">
                     <div class="card social-widget-card">
                         <div class="card-block-big bg-facebook">
-                            <h3>1165 +</h3>
-                            <span class="m-t-10">Facebook Users</span>
-                            <i class="icofont icofont-social-facebook"></i>
+                            <h3>Dashboard</h3>
+                            <span class="m-t-10">This is a dashboard</span>
+                            <i class="icofont icofont-social-users"></i>
                         </div>
                     </div>
                 </div>

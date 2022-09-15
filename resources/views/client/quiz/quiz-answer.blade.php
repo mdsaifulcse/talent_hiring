@@ -7,7 +7,7 @@
     <div class="page-wrapper">
         <div class="page-header">
             <div class="page-header-title">
-                <h4>Result for <strong>{{$topic}}</strong> Quiz</h4>
+                <h4>Result for <strong>{{$topic}}</strong> Quiz, UserName: {{$user->name}}</h4>
             </div>
             <div class="page-header-breadcrumb">
                 <ul class="breadcrumb-title">
@@ -33,6 +33,14 @@
                             @forelse($topicWiseQuizzes as $key=>$topicWiseQuiz)
                             <div class="single-quiz">
                                 <h4 class="entry-title mt-5">{{$key+1}}.  {{$topicWiseQuiz->question}}</h4>
+                                @if(!empty($topicWiseQuiz->quizAnswer))
+                                    <?php
+                                       $answerOption=$topicWiseQuiz->quizAnswer->answer_option
+                                    ?>
+                                <span class="{{$topicWiseQuiz->correct_option==$topicWiseQuiz->quizAnswer->answer_option?'text-success':'text-danger'}}">Your Ans: {{$topicWiseQuiz->$answerOption}}</span>
+                                    @else
+                                    <span class="text-warning">No answer</span>
+                                @endif
                                 <hr>
 
                                 <ul>
@@ -52,7 +60,7 @@
                             </div>
 
                                 @empty
-                                <h2> Quiz question not found </h2>
+                                <h2> Data not found </h2>
                             @endforelse
 
                             {{--<button type="submit" class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20">Submit Answer.</button>--}}

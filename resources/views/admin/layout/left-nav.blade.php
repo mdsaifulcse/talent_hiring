@@ -102,7 +102,7 @@
                 <ul class="pcoded-submenu">
 
                     <li class="active">
-                        <a href="{{route('user-quiz.index').'?topic=Bangla'}}">
+                        <a href="{{url('user-quiz-answer').'?topic=Bangla'}}">
                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                             <span class="pcoded-mtext" data-i18n="nav.dash.default">Bangla</span>
                             <span class="pcoded-mcaret"></span>
@@ -110,7 +110,7 @@
                     </li>
 
                     <li class="active">
-                        <a href="{{route('user-quiz.index').'?topic=English'}}">
+                        <a href="{{url('user-quiz-answer').'?topic=English'}}">
                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                             <span class="pcoded-mtext" data-i18n="nav.dash.default">English</span>
                             <span class="pcoded-mcaret"></span>
@@ -118,7 +118,7 @@
                     </li>
 
                     <li class="active">
-                        <a href="{{route('user-quiz.index').'?topic=Math'}}">
+                        <a href="{{url('user-quiz-answer').'?topic=Math'}}">
                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                             <span class="pcoded-mtext" data-i18n="nav.dash.default">Math</span>
                             <span class="pcoded-mcaret"></span>

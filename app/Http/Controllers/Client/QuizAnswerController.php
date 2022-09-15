@@ -1,8 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Client;
 
+use App\Http\Controllers\Controller;
+use App\Models\Quiz;
 use App\Models\QuizAnswer;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class QuizAnswerController extends Controller
@@ -12,9 +15,16 @@ class QuizAnswerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+
+    public function index(Request $request)
     {
-        //
+        $topic=$request->get('topic', 'default');
+         //$topicWiseQuizzes=Quiz::topicAndUserWiseQuizzesAns($topic,auth()->user()->id);
+        return view('client.quiz.quiz-answer',[
+            'topic'=>$topic,
+            'topicWiseQuizzes'=>Quiz::topicAndUserWiseQuizzesAns($topic,auth()->user()->id),
+            'user'=>User::find(auth()->user()->id)
+        ]);
     }
 
     /**

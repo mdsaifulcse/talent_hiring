@@ -28,8 +28,8 @@
                 <div class="col-md-6 col-xl-3">
                     <div class="card social-widget-card">
                         <div class="card-block-big bg-facebook">
-                            <h3>1165 +</h3>
-                            <span class="m-t-10">Facebook Users</span>
+                            <h3>This is a dashboard</h3>
+                            <span class="m-t-10">This is a dashboard</span>
                             <i class="icofont icofont-social-facebook"></i>
                         </div>
                     </div>
