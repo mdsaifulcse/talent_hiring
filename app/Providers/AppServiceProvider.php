@@ -32,7 +32,7 @@ class AppServiceProvider extends ServiceProvider
             ],
             function ($view)
             {
-                $authUser=User::find(3);
+                $authUser=User::find(auth()->user()->id);
                 $view->with(['authUser'=>$authUser]);
             });
     }
