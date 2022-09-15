@@ -15,6 +15,7 @@
 5. To generate application key: php artisan key:generate
 6. Login with admin: username: admin@talenthire.com, password: 12345678
     login with general user: user@talenthire.com, Password: 12345678
+7. Live Project Link : http://talenthire.salahuddinboighor.com
 
 ## About Laravel
 
