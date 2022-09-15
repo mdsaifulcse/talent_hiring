@@ -12,7 +12,8 @@
 2. connect the database: DB: talent_hire, User: root, password: ""
 3. Migrate the database: php artisan migrate
 4. Seed the database: php artisan db:seed
-5. Login with admin: username: admin@talenthire.com, password: 12345678
+5. To generate application key: php artisan key:generate
+6. Login with admin: username: admin@talenthire.com, password: 12345678
     login with general user: user@talenthire.com, Password: 12345678
 
 ## About Laravel
